@@ -4,14 +4,14 @@ with open('README.rst', 'r') as f:
     long_description = f.read()
 
 setup(
-    name='makenew-python-package',
-    version='1.2.0',
-    author='Evan Sosenko',
-    author_email='razorx@evansosenko.com',
-    packages=find_packages(exclude=['docs']),
-    url='https://github.com/makenew/python-package',
+    name='flipper',
+    version='0.0.1',
+    author='James Finucane',
+    author_email='james@mpharma.co',
+    packages=find_packages(exclude=['docs', 'tests', 'venv']),
+    url='https://github.com/mPharma/flipper',
     license='MIT',
-    description='Python package skeleton.',
+    description='Feature flipper that uses environment variables to ftoggle features',
     long_description=long_description,
     install_requires=[
     ]
