@@ -25,6 +25,7 @@ Feature flipper that uses environment variables to ftoggle features
 e.g.
 
 ::
+
     import flipper
 
     @periodic_task(run_every=(crontab(hour='10', minute='0', day_of_week='mon,wed,fri')))
