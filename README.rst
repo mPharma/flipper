@@ -22,6 +22,26 @@ Description
 
 Feature flipper that uses environment variables to ftoggle features
 
+e.g.
+
+::
+    import flipper
+
+    @periodic_task(run_every=(crontab(hour='10', minute='0', day_of_week='mon,wed,fri')))
+    def fire_past_dispensation_due_date_chain():
+        """
+        at 10 am on mondays wednesdays and fridays,
+        fire this chain. which will result in sending a bunch of notifications
+        """
+
+        # this block will do nothing unless FEATURE_SLACK_DISPENSATION_DUE
+        # environment variable is set to 1
+        flipper.flippit('slack_dispensation_due',
+                        chain(get_past_dispensation_due_date.s(),
+                              build_slack_dispensation_due_payloads.s(),
+                              fire_dispensation_due_payloads.s(), ).apply_async)()
+        return True
+
 Installation
 ------------
 
